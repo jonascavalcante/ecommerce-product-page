@@ -2,6 +2,7 @@ import { ThemeProvider } from 'styled-components';
 
 import defaultTheme from '../../assets/style/themes/defaultTheme';
 import GlobalStyles from '../../assets/style/globalStyles';
+import Header from '../Header';
 
 function App() {
   return (
@@ -9,7 +10,8 @@ function App() {
       <ThemeProvider theme={defaultTheme}>
         <GlobalStyles />
 
-        This text will be deleted
+        <Header />
+
       </ThemeProvider>
     </>
   );
