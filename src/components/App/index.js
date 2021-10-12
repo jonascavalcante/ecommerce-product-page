@@ -4,6 +4,7 @@ import defaultTheme from '../../assets/style/themes/defaultTheme';
 import GlobalStyles from '../../assets/style/globalStyles';
 import Header from '../Header';
 import Slider from '../Slider';
+import Main from '../Main';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
 
         <Header />
         <Slider />
+        <Main />
 
       </ThemeProvider>
     </>
