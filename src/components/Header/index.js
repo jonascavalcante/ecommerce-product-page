@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { Container } from './styles';
 
 import menuIcon from '../../assets/icons/icon-menu.svg';
@@ -7,26 +8,39 @@ import avatar from '../../assets/images/image-avatar.png';
 
 import Cart from '../Cart';
 
-const Header = () => (
-  <Container>
+const Header = () => {
+  const [cartVisibility, setCartVisibility] = useState(false);
 
-    <button className="left" type="button">
-      <img src={menuIcon} alt="menu button" />
-    </button>
+  function handleCartVisibility() {
+    setCartVisibility((prevState) => {
+      if (prevState) {
+        return false;
+      }
+      return true;
+    });
+  }
 
-    <img className="left" src={logo} alt="logo" />
+  return (
+    <Container>
 
-    <button className="right" type="button">
-      <img src={cart} alt="cart button" />
-    </button>
+      <button className="left" type="button">
+        <img src={menuIcon} alt="menu button" />
+      </button>
 
-    <button type="button">
-      <img src={avatar} alt="avatar" />
-    </button>
+      <img className="left" src={logo} alt="logo" />
 
-    <Cart />
+      <button className="right" type="button" onClick={handleCartVisibility}>
+        <img src={cart} alt="cart button" />
+      </button>
 
-  </Container>
-);
+      <button type="button">
+        <img src={avatar} alt="avatar" />
+      </button>
+
+      {cartVisibility && <Cart />}
+
+    </Container>
+  );
+};
 
 export default Header;
