@@ -2,10 +2,12 @@ import styled from 'styled-components';
 
 export const Container = styled.header`
   height: 68px;
-  display: flex;
   padding: 20px 24px;
 
+  display: flex;
   align-items: center;
+
+  position: relative;
 
   button {
     width: 23px;

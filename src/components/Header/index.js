@@ -5,6 +5,8 @@ import logo from '../../assets/images/logo.svg';
 import cart from '../../assets/icons/icon-cart.svg';
 import avatar from '../../assets/images/image-avatar.png';
 
+import Cart from '../Cart';
+
 const Header = () => (
   <Container>
 
@@ -21,6 +23,8 @@ const Header = () => (
     <button type="button">
       <img src={avatar} alt="avatar" />
     </button>
+
+    <Cart />
 
   </Container>
 );
