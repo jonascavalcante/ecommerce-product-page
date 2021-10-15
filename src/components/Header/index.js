@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { PropTypes } from 'prop-types';
 import { Container } from './styles';
 
 import menuIcon from '../../assets/icons/icon-menu.svg';
@@ -8,7 +9,7 @@ import avatar from '../../assets/images/image-avatar.png';
 
 import Cart from '../Cart';
 
-const Header = () => {
+const Header = ({ handleMenuVisibility }) => {
   const [cartVisibility, setCartVisibility] = useState(false);
 
   function handleCartVisibility() {
@@ -23,7 +24,7 @@ const Header = () => {
   return (
     <Container>
 
-      <button className="left" type="button">
+      <button className="left" type="button" onClick={handleMenuVisibility}>
         <img src={menuIcon} alt="menu button" />
       </button>
 
@@ -44,3 +45,7 @@ const Header = () => {
 };
 
 export default Header;
+
+Header.propTypes = {
+  handleMenuVisibility: PropTypes.func.isRequired,
+};
