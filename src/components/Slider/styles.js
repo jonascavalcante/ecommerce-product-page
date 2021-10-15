@@ -5,6 +5,7 @@ export const Container = styled.div`
   background: ${({ theme }) => theme.colors.primary.orange};
 
   position: relative;
+  margin-top: 68px;
 
   .list {
     width: 100%;

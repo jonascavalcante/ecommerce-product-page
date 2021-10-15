@@ -1,13 +1,18 @@
 import styled from 'styled-components';
 
 export const Container = styled.header`
+  width: 100%;
   height: 68px;
   padding: 20px 24px;
 
   display: flex;
   align-items: center;
 
-  position: relative;
+  position: fixed;
+  top: 0;
+  z-index: 1;
+
+  background-color: ${({ theme }) => theme.colors.neutral.white};
 
   button {
     width: 23px;
