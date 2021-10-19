@@ -14,7 +14,7 @@ const Cart = () => {
       <h3>Cart</h3>
 
       {productsCart.map(({
-        id, name, price, thumbnail, quantity,
+        id, name, price, thumbnail, quantity, discount,
       }) => (
         <div key={id} className="info">
 
@@ -24,7 +24,7 @@ const Cart = () => {
             <p>{name}</p>
             <p>
               $
-              {price.toFixed(2)}
+              {(price * discount).toFixed(2)}
               {' '}
               x
               {' '}
@@ -32,7 +32,7 @@ const Cart = () => {
               {' '}
               <span>
                 $
-                {(price * quantity).toFixed(2)}
+                {(price * discount * quantity).toFixed(2)}
               </span>
             </p>
           </div>

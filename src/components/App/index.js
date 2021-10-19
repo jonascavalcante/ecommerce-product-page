@@ -28,14 +28,16 @@ function App() {
     });
   }, []);
 
-  const [productsCart, setProductCart] = useState([
+  const [products] = useState([
     {
-      id: 1, name: 'Autumn Limited Edition...', price: 125.00, thumbnail, quantity: 3,
+      id: 1, name: 'Autumn Limited Edition...', price: 250.00, thumbnail, quantity: 3, discount: 0.5,
     },
     {
-      id: 2, name: 'Winter Limited Edition...', price: 225.00, thumbnail, quantity: 2,
+      id: 2, name: 'Winter Limited Edition...', price: 100.00, thumbnail, quantity: 2, discount: 0.25,
     },
   ]);
+
+  const [productsCart, setProductCart] = useState([]);
 
   const handleRemoveProduct = (productId) => {
     const newProductsCart = [];
@@ -48,8 +50,25 @@ function App() {
     );
   };
 
+  const handleAddProductsToCart = (productId, productQuantity) => {
+    const newProducts = [];
+
+    if (productQuantity > 0) {
+      products.map(
+        (product) => ((product.id === productId)
+          ? newProducts.push({ ...product, quantity: productQuantity })
+          : ''),
+      );
+    }
+
+    setProductCart(newProducts);
+  };
+
   return (
-    <ProductContext.Provider value={{ productsCart, handleRemoveProduct }}>
+    <ProductContext.Provider value={{
+      products, productsCart, handleRemoveProduct, handleAddProductsToCart,
+    }}
+    >
       <ThemeProvider theme={defaultTheme}>
         <GlobalStyles />
 
