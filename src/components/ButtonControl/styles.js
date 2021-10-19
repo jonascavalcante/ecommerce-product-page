@@ -25,5 +25,6 @@ export const Container = styled.button`
 
   img {
     height: 14px;
+    pointer-events:none;
   }
 `;

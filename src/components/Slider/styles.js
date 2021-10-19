@@ -12,13 +12,34 @@ export const Container = styled.div`
     height: 300px;
     display: flex;
 
-    overflow: auto;
-    scroll-snap-type: x mandatory;
+    overflow: hidden;
 
-    img {
+    .list__container {
       width: 100%;
-      object-fit: cover;
-      scroll-snap-align: center;
+      height: 100%;
+      display: flex;
+      transition: 0.25s;
+
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+
+      &.list__container--1 {
+        margin-left: 0%;
+      }
+
+      &.list__container--2 {
+        margin-left: -100%;
+      }
+
+      &.list__container--3 {
+        margin-left: -200%;
+      }
+
+      &.list__container--4 {
+        margin-left: -300%;
+      }
     }
   }
 `;
