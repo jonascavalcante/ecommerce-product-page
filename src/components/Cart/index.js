@@ -1,37 +1,55 @@
+import { useContext } from 'react';
 import { Container } from './styles';
 
-import thumbnail from '../../assets/images/image-product-1-thumbnail.jpg';
+import { ProductContext } from '../App';
+
 import deleteIcon from '../../assets/icons/icon-delete.svg';
 
-const Cart = () => (
-  <Container>
+const Cart = () => {
+  const { productsCart, handleRemoveProduct } = useContext(ProductContext);
 
-    <h3>Cart</h3>
+  return (
+    <Container>
 
-    <div className="info">
+      <h3>Cart</h3>
 
-      <img src={thumbnail} alt="thumbnail" />
+      {productsCart.map(({
+        id, name, price, thumbnail, quantity,
+      }) => (
+        <div key={id} className="info">
 
-      <div className="info__product">
-        <p>Autumn Limited Edition...</p>
-        <p>
-          $125.00 x
-          {' '}
-          <span>$375.00</span>
-        </p>
-      </div>
+          <img src={thumbnail} alt="thumbnail" />
 
-      <button type="button">
-        <img src={deleteIcon} alt="delete" />
-      </button>
+          <div className="info__product">
+            <p>{name}</p>
+            <p>
+              $
+              {price.toFixed(2)}
+              {' '}
+              x
+              {' '}
+              {quantity}
+              {' '}
+              <span>
+                $
+                {(price * quantity).toFixed(2)}
+              </span>
+            </p>
+          </div>
 
-    </div>
+          <button onClick={() => handleRemoveProduct(id)} type="button">
+            <img src={deleteIcon} alt="delete" />
+          </button>
 
-    <button className="checkout-button" type="button">
-      Checkout
-    </button>
+        </div>
+      ))}
 
-  </Container>
-);
+      {productsCart.length > 0
+        ? <button className="checkout-button" type="button">Checkout</button>
+        : <p className="cart-empty">Your cart is empty.</p>}
+
+    </Container>
+  );
+};
 
 export default Cart;

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const Container = styled.div`
   width: calc(100% - 16px);
   max-width: 360px;
-  height: 256px;
+  min-height: 256px;
   background-color: ${({ theme }) => theme.colors.neutral.white};
 
   border-radius: 10px;
@@ -70,4 +70,14 @@ export const Container = styled.div`
     color: ${({ theme }) => theme.colors.neutral.white};
     background-color: ${({ theme }) => theme.colors.primary.orange};
   }
+
+  .cart-empty {
+    width: 100%;
+    min-height: 189px;
+    display: grid;
+    place-items: center;
+    font-size: 1.7rem;
+    font-weight: ${({ theme }) => theme.typography.font.bold};
+    color: ${({ theme }) => theme.colors.neutral.darkGrayishBlue}
+ }
 `;
