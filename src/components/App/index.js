@@ -3,10 +3,13 @@ import { ThemeProvider } from 'styled-components';
 
 import defaultTheme from '../../assets/style/themes/defaultTheme';
 import GlobalStyles from '../../assets/style/globalStyles';
+
 import Header from '../Header';
 import Slider from '../Slider';
 import Main from '../Main';
 import MenuMobile from '../MenuMobile';
+
+import ProductPage from '../../pages';
 
 function App() {
   const [menuMobileVisibility, setMenuMobileVisibility] = useState(false);
@@ -33,8 +36,10 @@ function App() {
         <Header
           handleMenuVisibility={handleMenuMobile}
         />
-        <Slider />
-        <Main />
+        <ProductPage>
+          <Slider />
+          <Main />
+        </ProductPage>
 
       </ThemeProvider>
     </>
