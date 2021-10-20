@@ -8,8 +8,7 @@ import Header from '../Header';
 import Slider from '../Slider';
 import Main from '../Main';
 import MenuMobile from '../MenuMobile';
-
-import ProductPage from '../../pages';
+import ProductPage from '../../pages/ProductPage';
 
 import thumbnail from '../../assets/images/image-product-1-thumbnail.jpg';
 
