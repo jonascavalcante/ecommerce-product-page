@@ -30,12 +30,20 @@ const Header = ({ handleMenuVisibility, productsCartQuantity }) => {
 
       <img className="left" src={logo} alt="logo" />
 
+      <ul className="menu">
+        <li><a href="#collections">Collections</a></li>
+        <li><a href="#men">Men</a></li>
+        <li><a href="#women">Women</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
       <button className="right" type="button" onClick={handleCartVisibility}>
         <img src={cart} alt="cart button" />
         {productsCartQuantity > 0 && <span>{productsCartQuantity}</span>}
       </button>
 
-      <button type="button">
+      <button className="avatar" type="button">
         <img src={avatar} alt="avatar" />
       </button>
 
