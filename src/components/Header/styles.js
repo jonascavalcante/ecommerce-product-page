@@ -31,6 +31,19 @@ export const Container = styled.header`
 
     &.right {
       margin: 0 20px 0 auto;
+      position: relative;
+
+      span {
+        font-size: 1.2rem;
+        font-weight: ${({ theme }) => theme.typography.font.bold};
+        padding: 0px 7px;
+        border-radius: 8px;
+        position: absolute;
+        top: -8px;
+        left: 8px;
+        color: ${({ theme }) => theme.colors.neutral.white};
+        background-color: ${({ theme }) => theme.colors.primary.orange};
+      }
     }
   }
 `;

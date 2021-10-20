@@ -9,7 +9,7 @@ import avatar from '../../assets/images/image-avatar.png';
 
 import Cart from '../Cart';
 
-const Header = ({ handleMenuVisibility }) => {
+const Header = ({ handleMenuVisibility, productsCartQuantity }) => {
   const [cartVisibility, setCartVisibility] = useState(false);
 
   function handleCartVisibility() {
@@ -32,6 +32,7 @@ const Header = ({ handleMenuVisibility }) => {
 
       <button className="right" type="button" onClick={handleCartVisibility}>
         <img src={cart} alt="cart button" />
+        {productsCartQuantity > 0 && <span>{productsCartQuantity}</span>}
       </button>
 
       <button type="button">
@@ -48,4 +49,5 @@ export default Header;
 
 Header.propTypes = {
   handleMenuVisibility: PropTypes.func.isRequired,
+  productsCartQuantity: PropTypes.number.isRequired,
 };

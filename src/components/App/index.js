@@ -1,4 +1,6 @@
-import { useState, useCallback, createContext } from 'react';
+import {
+  useState, useCallback, createContext, useEffect,
+} from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import defaultTheme from '../../assets/style/themes/defaultTheme';
@@ -37,6 +39,17 @@ function App() {
   ]);
 
   const [productsCart, setProductCart] = useState([]);
+  const [productsCartQuantity, setProductsCartQuantity] = useState(0);
+
+  useEffect(() => {
+    let newProductQuantity = 0;
+
+    productsCart.forEach((product) => {
+      newProductQuantity += product.quantity;
+    });
+
+    setProductsCartQuantity(newProductQuantity);
+  }, [productsCart]);
 
   const handleRemoveProduct = (productId) => {
     const newProductsCart = [];
@@ -77,6 +90,7 @@ function App() {
         />
         <Header
           handleMenuVisibility={handleMenuMobile}
+          productsCartQuantity={productsCartQuantity}
         />
         <ProductPage>
           <Slider />
