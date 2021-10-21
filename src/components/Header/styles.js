@@ -55,6 +55,15 @@ export const Container = styled.header`
     height: 113px;
     padding: 0 10.8%;
 
+    &::after {
+      content: '';
+      width: calc(100% - 21.6%);
+      height: 0.5px;
+      background-color: ${({ theme }) => theme.colors.neutral.grayishBlue};
+      position: absolute;
+      top: 113px;
+    }
+
     img.left {
       margin-right: 56px;
     }
@@ -79,6 +88,7 @@ export const Container = styled.header`
 
           &:hover {
             transition: 0.25s;
+            color: ${({ theme }) => theme.colors.neutral.veryDarkBlue};
             border-bottom: 4px solid ${({ theme }) => theme.colors.primary.orange};
           }
         }
@@ -96,6 +106,11 @@ export const Container = styled.header`
 
       &.right {
         margin: 0 32px 0 auto;
+
+        span {
+          top: 5px;
+          left: 22px;
+        }
 
         img {
           width: 23px;

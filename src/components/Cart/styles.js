@@ -5,6 +5,7 @@ export const Container = styled.div`
   max-width: 360px;
   min-height: 256px;
   background-color: ${({ theme }) => theme.colors.neutral.white};
+  box-shadow: 0 10px 30px -10px ${({ theme }) => theme.colors.neutral.darkGrayishBlue};
 
   border-radius: 10px;
   position: absolute;
@@ -79,5 +80,10 @@ export const Container = styled.div`
     font-size: 1.7rem;
     font-weight: ${({ theme }) => theme.typography.font.bold};
     color: ${({ theme }) => theme.colors.neutral.darkGrayishBlue}
+ }
+
+ @media (min-width: 996px) {
+  top: 95px;
+  right: 5%;
  }
 `;
