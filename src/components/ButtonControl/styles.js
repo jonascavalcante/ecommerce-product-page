@@ -27,4 +27,8 @@ export const Container = styled.button`
     height: 14px;
     pointer-events:none;
   }
+
+  @media (min-width: 996px) {
+    display: none;
+  }
 `;
