@@ -1,13 +1,19 @@
+import { useContext } from 'react';
 import { Container } from './styles';
 
-const Description = () => (
-  <Container>
-    <h5>SNEAKER COMPANY</h5>
-    <h2>Fall Limited Edition Sneakers</h2>
-    <p>
-      These low-profile sneakers are your perfect casual wear  companion. featuring a durable rubber outer sole, they&apos;ll withstand everything the weather can offer.
-    </p>
-  </Container>
-);
+import { ProductContext } from '../App';
+
+const Description = () => {
+  const { products } = useContext(ProductContext);
+
+  return (
+
+    <Container>
+      <h5>{products[0].company}</h5>
+      <h2>{products[0].title}</h2>
+      <p>{products[0].description}</p>
+    </Container>
+  );
+};
 
 export default Description;

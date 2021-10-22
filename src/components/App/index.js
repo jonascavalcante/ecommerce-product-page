@@ -41,10 +41,12 @@ function App() {
     {
       id: 1,
       name: 'Autumn Limited Edition...',
+      company: 'SNEAKER COMPANY',
+      title: 'Fall Limited Edition Sneakers',
+      description: 'These low-profile sneakers are your perfect casual wear  companion. featuring a durable rubber outer sole, they&apos;ll withstand everything the weather can offer.',
       price: 250.00,
       images: [product1, product2, product3, product4],
       thumbnails: [thumbnail1, thumbnail2, thumbnail3, thumbnail4],
-      quantity: 3,
       discount: 0.5,
     },
   ]);
