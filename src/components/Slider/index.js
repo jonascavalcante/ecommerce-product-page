@@ -6,6 +6,7 @@ import previous from '../../assets/icons/icon-previous.svg';
 import next from '../../assets/icons/icon-next.svg';
 
 import { ProductContext } from '../App';
+import SliderList from '../SliderList';
 
 const Slider = () => {
   const { products } = useContext(ProductContext);
@@ -29,13 +30,7 @@ const Slider = () => {
   return (
     <Container>
 
-      <div className="list">
-        <div className={`list__container list__container--${imageNumber}`}>
-          {products[0].images.map((product, index) => (
-            <img key={product} className={`list__image${index + 1}`} src={product} alt={`product-${index + 1}`} />
-          ))}
-        </div>
-      </div>
+      <SliderList products={products[0].images} imageNumber={imageNumber} />
 
       <ButtonControll handleClick={handleChangeImage} icon={previous} className="left" />
       <ButtonControll handleClick={handleChangeImage} icon={next} className="right" />
