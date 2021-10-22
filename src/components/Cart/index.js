@@ -14,11 +14,11 @@ const Cart = () => {
       <h3>Cart</h3>
 
       {productsCart.map(({
-        id, name, price, thumbnail, quantity, discount,
+        id, name, price, thumbnails, quantity, discount,
       }) => (
         <div key={id} className="info">
 
-          <img src={thumbnail} alt="thumbnail" />
+          <img src={thumbnails[0]} alt="thumbnail" />
 
           <div className="info__product">
             <p>{name}</p>
