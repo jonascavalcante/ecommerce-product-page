@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useCallback, useContext, useState } from 'react';
 import { Container } from './styles';
 
 import SliderList from '../SliderList';
@@ -16,7 +16,7 @@ const Slider = () => {
   const [imageNumber, setImageNumber] = useState(1);
   const [modalVisibility, setModalVisibility] = useState(false);
 
-  const handleChangeImage = (className) => {
+  const handleChangeImage = useCallback((className) => {
     if (className.includes('left')) {
       setImageNumber((prevState) => (prevState > 1 ? prevState - 1 : 4));
     }
@@ -24,16 +24,16 @@ const Slider = () => {
     if (className.includes('right')) {
       setImageNumber((prevState) => (prevState < 4 ? prevState + 1 : 1));
     }
-  };
+  }, []);
 
-  const handleChangeImageDesktop = (number) => {
+  const handleChangeImageDesktop = useCallback((number) => {
     document.getElementsByClassName('image-buttons__button');
     setImageNumber(number);
-  };
+  }, []);
 
-  const handleModalVisibility = () => {
+  const handleModalVisibility = useCallback(() => {
     setModalVisibility((prevState) => !prevState);
-  };
+  }, []);
 
   return (
     <Container>
