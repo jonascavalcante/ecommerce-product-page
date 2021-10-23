@@ -25,18 +25,6 @@ import thumbnail4 from '../../assets/images/image-product-4-thumbnail.jpg';
 export const ProductContext = createContext();
 
 function App() {
-  const [menuMobileVisibility, setMenuMobileVisibility] = useState(false);
-
-  const handleMenuMobile = useCallback(() => {
-    setMenuMobileVisibility((prevState) => {
-      if (prevState) {
-        return false;
-      }
-
-      return true;
-    });
-  }, []);
-
   const [products] = useState([
     {
       id: 1,
@@ -50,9 +38,9 @@ function App() {
       discount: 0.5,
     },
   ]);
-
   const [productsCart, setProductCart] = useState([]);
   const [productsCartQuantity, setProductsCartQuantity] = useState(0);
+  const [menuMobileVisibility, setMenuMobileVisibility] = useState(false);
 
   useEffect(() => {
     let newProductQuantity = 0;
@@ -64,18 +52,7 @@ function App() {
     setProductsCartQuantity(newProductQuantity);
   }, [productsCart]);
 
-  const handleRemoveProduct = (productId) => {
-    const newProductsCart = [];
-    setProductCart(
-      (prevState) => (
-        prevState.filter(
-          (product) => ((product.id !== productId) ? newProductsCart.push(product) : ''),
-        )
-      ),
-    );
-  };
-
-  const handleAddProductsToCart = (productId, productQuantity) => {
+  const handleAddProductsToCart = useCallback((productId, productQuantity) => {
     const newProducts = [];
 
     if (productQuantity > 0) {
@@ -87,7 +64,28 @@ function App() {
     }
 
     setProductCart(newProducts);
-  };
+  }, []);
+
+  const handleRemoveProduct = useCallback((productId) => {
+    const newProductsCart = [];
+    setProductCart(
+      (prevState) => (
+        prevState.filter(
+          (product) => ((product.id !== productId) ? newProductsCart.push(product) : ''),
+        )
+      ),
+    );
+  }, []);
+
+  const handleMenuMobile = useCallback(() => {
+    setMenuMobileVisibility((prevState) => {
+      if (prevState) {
+        return false;
+      }
+
+      return true;
+    });
+  }, []);
 
   return (
     <ProductContext.Provider value={{
