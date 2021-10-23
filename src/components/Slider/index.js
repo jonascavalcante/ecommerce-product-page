@@ -5,8 +5,8 @@ import SliderList from '../SliderList';
 import ButtonControll from '../ButtonControl';
 import SliderImageButtons from '../SliderImageButtons';
 
-import previous from '../../assets/icons/icon-previous.svg';
-import next from '../../assets/icons/icon-next.svg';
+import PreviousIcon from '../svgComponents/PreviousIcon';
+import NextIcon from '../svgComponents/NextIcon';
 
 import { ProductContext } from '../App';
 import Modal from '../Modal';
@@ -40,8 +40,12 @@ const Slider = () => {
 
       <SliderList fakeButton="fake-button" handleModalVisibility={handleModalVisibility} products={products[0].images} imageNumber={imageNumber} />
 
-      <ButtonControll handleClick={handleChangeImage} icon={previous} className="left" />
-      <ButtonControll handleClick={handleChangeImage} icon={next} className="right" />
+      <ButtonControll handleClick={handleChangeImage} className="left">
+        <PreviousIcon />
+      </ButtonControll>
+      <ButtonControll handleClick={handleChangeImage} className="right">
+        <NextIcon />
+      </ButtonControll>
 
       <SliderImageButtons
         products={products[0].thumbnails}

@@ -3,7 +3,7 @@ import { Container } from './styles';
 
 import minus from '../../assets/icons/icon-minus.svg';
 import plus from '../../assets/icons/icon-plus.svg';
-import CartSvg from './CartSvg';
+import CartIcon from '../svgComponents/CartIcon';
 
 import { ProductContext } from '../App';
 
@@ -67,13 +67,13 @@ const CartController = () => {
       {productQuantity
         ? (
           <button onClick={() => handleClickCheckout()} type="button" className="add-to-cart">
-            <CartSvg />
+            <CartIcon />
             Add to cart
           </button>
         )
         : (
           <button disabled onClick={() => handleClickCheckout()} type="button" className="add-to-cart">
-            <CartSvg />
+            <CartIcon />
             Add to cart
           </button>
         )}

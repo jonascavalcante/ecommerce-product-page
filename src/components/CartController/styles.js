@@ -105,6 +105,11 @@ export const Container = styled.div`
       button {
         width: 46px;
         cursor: pointer;
+
+        &:hover img {
+          transition: 0.25s;
+          opacity: 0.5;
+        }
       }
     }
 
@@ -113,9 +118,9 @@ export const Container = styled.div`
       max-width: 272px;
       margin-top: 40px;
       cursor: pointer;
-      transition: 0.2s;
 
       &:hover {
+        transition: 0.25s;
         opacity: 0.5;
       }
     }

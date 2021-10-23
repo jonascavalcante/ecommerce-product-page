@@ -23,9 +23,8 @@ export const Container = styled.button`
     right: 16px;
   }
 
-  img {
-    height: 14px;
-    pointer-events:none;
+  svg {
+    pointer-events: none;
   }
 
   @media (min-width: 996px) {
@@ -51,8 +50,9 @@ export const Container = styled.button`
         right: 0;
       }
 
-      img {
-        height: 18px;
+      &:hover svg path {
+        transition: 0.25s;
+        stroke: ${({ theme }) => theme.colors.primary.orange};
       }
     }
   }

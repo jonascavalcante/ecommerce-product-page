@@ -112,8 +112,9 @@ export const Container = styled.header`
           left: 22px;
         }
 
-        img {
-          width: 23px;
+        &:hover svg path {
+          transition: 0.25s;
+          fill: ${({ theme }) => theme.colors.neutral.veryDarkBlue};
         }
       }
 

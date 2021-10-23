@@ -4,8 +4,9 @@ import { Container } from './styles';
 
 import menuIcon from '../../assets/icons/icon-menu.svg';
 import logo from '../../assets/images/logo.svg';
-import cart from '../../assets/icons/icon-cart.svg';
 import avatar from '../../assets/images/image-avatar.png';
+
+import CartIcon from '../svgComponents/CartIcon';
 
 import Cart from '../Cart';
 
@@ -39,7 +40,7 @@ const Header = ({ handleMenuVisibility, productsCartQuantity }) => {
       </ul>
 
       <button className="right" type="button" onClick={handleCartVisibility}>
-        <img src={cart} alt="cart button" />
+        <CartIcon />
         {productsCartQuantity > 0 && <span>{productsCartQuantity}</span>}
       </button>
 

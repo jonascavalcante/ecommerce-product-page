@@ -1,13 +1,13 @@
 import ReactDom from 'react-dom';
 import { Container } from './styles';
 
-import previous from '../../assets/icons/icon-previous.svg';
-import next from '../../assets/icons/icon-next.svg';
+import PreviousIcon from '../svgComponents/PreviousIcon';
+import NextIcon from '../svgComponents/NextIcon';
+import CloseIcon from '../svgComponents/CloseIcon';
 
 import ButtonControll from '../ButtonControl';
 import SliderList from '../SliderList';
 import SliderImageButtons from '../SliderImageButtons';
-import CloseIcon from './CloseIcon';
 
 const Modal = ({
   handleModalVisibility, imageNumber, products, handleClick, handleChangeImageDesktop,
@@ -26,8 +26,12 @@ const Modal = ({
 
         <SliderList products={products} imageNumber={imageNumber} />
 
-        <ButtonControll handleClick={handleClick} icon={previous} className="left modal" />
-        <ButtonControll handleClick={handleClick} icon={next} className="right modal" />
+        <ButtonControll handleClick={handleClick} className="left modal">
+          <PreviousIcon />
+        </ButtonControll>
+        <ButtonControll handleClick={handleClick} className="right modal">
+          <NextIcon />
+        </ButtonControll>
 
       </div>
 
