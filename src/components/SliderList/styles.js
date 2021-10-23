@@ -8,6 +8,10 @@ export const Container = styled.div`
   background: ${({ theme }) => theme.colors.primary.orange};
   overflow: hidden;
 
+  .fake-button {
+    display: none;
+  }
+
   .list__container {
     width: 100%;
     height: 100%;
@@ -39,5 +43,15 @@ export const Container = styled.div`
   @media (min-width: 996px) {
     height: auto;
     border-radius: 10px;
+
+    position: relative;
+
+    .fake-button {
+      width: 100%;
+      height: 100%;
+      display: block;
+      position: absolute;
+      cursor: pointer;
+    }
   }
 `;

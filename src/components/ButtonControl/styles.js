@@ -30,5 +30,30 @@ export const Container = styled.button`
 
   @media (min-width: 996px) {
     display: none;
+
+    &.modal {
+      width: 56px;
+      height: 56px;
+
+      display: grid;
+
+      border-radius: 28px;
+
+      top: calc(50% - 28px);
+
+      cursor: pointer;
+
+      &.left {
+        left: 0;
+      }
+
+      &.right {
+        right: 0;
+      }
+
+      img {
+        height: 18px;
+      }
+    }
   }
 `;

@@ -9,10 +9,12 @@ import previous from '../../assets/icons/icon-previous.svg';
 import next from '../../assets/icons/icon-next.svg';
 
 import { ProductContext } from '../App';
+import Modal from '../Modal';
 
 const Slider = () => {
   const { products } = useContext(ProductContext);
   const [imageNumber, setImageNumber] = useState(1);
+  const [modalVisibility, setModalVisibility] = useState(false);
 
   const handleChangeImage = (className) => {
     if (className.includes('left')) {
@@ -29,10 +31,14 @@ const Slider = () => {
     setImageNumber(number);
   };
 
+  const handleModalVisibility = () => {
+    setModalVisibility((prevState) => !prevState);
+  };
+
   return (
     <Container>
 
-      <SliderList products={products[0].images} imageNumber={imageNumber} />
+      <SliderList fakeButton="fake-button" handleModalVisibility={handleModalVisibility} products={products[0].images} imageNumber={imageNumber} />
 
       <ButtonControll handleClick={handleChangeImage} icon={previous} className="left" />
       <ButtonControll handleClick={handleChangeImage} icon={next} className="right" />
@@ -42,6 +48,16 @@ const Slider = () => {
         imageNumber={imageNumber}
         handleChangeImageDesktop={handleChangeImageDesktop}
       />
+
+      {modalVisibility && (
+      <Modal
+        handleModalVisibility={handleModalVisibility}
+        products={products[0].images}
+        imageNumber={imageNumber}
+        handleClick={handleChangeImage}
+        handleChangeImageDesktop={handleChangeImageDesktop}
+      />
+      )}
 
     </Container>
   );

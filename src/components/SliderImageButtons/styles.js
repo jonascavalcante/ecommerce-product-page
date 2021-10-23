@@ -6,7 +6,7 @@ export const Container = styled.div`
   @media (min-width: 996px) {
     margin-top: 30px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 30px;
 
     button {
@@ -20,10 +20,13 @@ export const Container = styled.div`
       display: grid;
       place-items: center;
 
+      background-color: transparent;
+      overflow: hidden;
+
       img {
         border-radius: 10px;
-        width: 101%;
-        height: 101%;
+        width: 105%;
+        height: 105%;
       }
 
       &.image-buttons__button1,
@@ -31,16 +34,21 @@ export const Container = styled.div`
       &.image-buttons__button3,
       &.image-buttons__button4 {
         border: 2px solid ${({ theme }) => theme.colors.primary.orange};
+        background-color: ${({ theme }) => theme.colors.neutral.white};
 
         img {
           opacity: 0.5;
         }
       }
 
-      &:hover img{
-        transition: 0.25s;
-        opacity: 0.5;
+      &:hover {
+        background-color: ${({ theme }) => theme.colors.neutral.white};
+
+        img{
+          transition: 0.25s;
+          opacity: 0.5;
+        }
       }
     }
-    }
+  }
 `;
